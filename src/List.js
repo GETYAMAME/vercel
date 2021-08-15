@@ -12,7 +12,7 @@ export const List = ({title}) => {
         <div>
             <h4>{title}</h4>
             {
-                LANGUAGES.map((lang : string ,index : number) => {
+                LANGUAGES.map((lang  ,index ) => {
                     return <div key={index}>{lang}</div>
                 })
             }
