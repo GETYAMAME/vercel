@@ -2,12 +2,13 @@ import React from 'react';
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 
-export const Form = () => {
-    const [text,setText] = useState();
+export const Form = ({ onAddLang }) => {
+    const [text,setText] = useState('');
 
     const submitForm = (event) => {
         event.preventDefault();
-        console.log(text)
+        onAddLang(text);
+        console.log(text);
     }
 
     return (
