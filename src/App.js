@@ -1,6 +1,7 @@
 import  { List }  from './List';
 import  { Form }  from './Form';
-import { LANGUAGES } from "./const/languages";
+import { getLanguages } from "./const/languages";
+import { withLoading } from "./hoc/withLoading";
 import styled from 'styled-components';
 import React from 'react';
 import {useEffect,useState} from 'react';
@@ -25,9 +26,9 @@ const HaeaderLi = styled.li`
 `
 
 
-function App() {
+function App({data}) {
   const [tab, setTab] = useState('list');
-  const [langs,setLangs] = useState(LANGUAGES);
+  const [langs,setLangs] = useState(data);
   const addLang = (lang) => {
     //langs.push(lang)　これだとuseEffectが走らない set で値が変更されたことを明示してあげる必要があるのか？？
     setLangs([...langs, lang]);
@@ -55,4 +56,4 @@ function App() {
   );
 }
 
-export default App;
+export default withLoading(App, getLanguages);

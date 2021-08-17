@@ -1,10 +1,8 @@
 import React from 'react';
 import { useEffect } from 'react';
 import styled from 'styled-components';
+import { TabBodyContainer } from "./components/tab-body-container";
 
-const Container =  styled.div`
-    padding: 12px 64px;
-`
 
 const ListItem = styled.div`
     padding: 8px 16px;
@@ -24,12 +22,12 @@ export const List = ({title}) => {
         }
     },[])
     return (
-        <Container>
+        <TabBodyContainer main='取り扱い言語リスト'>
             {
                 title.map((lang,index) => {
                     return <ListItem key={index}>{lang}</ListItem>
                 })
             }
-        </Container>
+        </TabBodyContainer>
     )
 }
